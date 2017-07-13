@@ -82,10 +82,12 @@ passport.use(new FacebookStrategy({
       else {
         let newUser = new User();
 
+        //console.log(profile);
+
         newUser.email = profile._json.email;
         newUser.facebookId = profile.id;
         newUser.name = profile.displayName;
-        newUser.photo = profile.photos[0].value;
+        newUser.photo = 'https://graph.facebook.com/' + profile.id + '/picture?type=small';
         newUser.save(function(err) {
           if(err) throw err;
           next(err, newUser);
