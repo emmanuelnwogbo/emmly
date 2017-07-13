@@ -48,7 +48,7 @@ passport.use('local-login', new LocalStrategy({
 passport.use(new GoogleStrategy({
   clientID: '31450089738-5tjagu3r7omqfh1u7hrlhel3o8vvq63t.apps.googleusercontent.com',
   clientSecret: 'CTDyZNhAbeqELN5bDtQmp7xS',
-  callbackURL: 'http://localhost:3000/auth/google/callback',
+  callbackURL: 'https://vast-depths-76258.herokuapp.com/auth/google/callback',
 }, function(accessToken, refreshToken, profile, next) {
     User.findOne({ googleId: profile.id}, function(err, user) {
       if(user) {
@@ -72,7 +72,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
   clientID: '252353935261828',
   clientSecret: '60d3e824650de1931b98aa525eecef73',
-  callbackURL: 'http://localhost:3000/auth/facebook/callback',
+  callbackURL: 'https://vast-depths-76258.herokuapp.com/auth/facebook/callback',
   profileFields: ['id', 'displayName', 'email']
 }, function(accessToken, refreshToken, profile, next) {
     User.findOne({ facebookId: profile.id}, function(err, user) {
